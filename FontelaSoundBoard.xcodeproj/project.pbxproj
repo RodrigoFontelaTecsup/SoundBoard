@@ -14,6 +14,7 @@
 		22BCF2F72AEF16B700CEFD87 /* FontelaSoundBoard.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 22BCF2F52AEF16B700CEFD87 /* FontelaSoundBoard.xcdatamodeld */; };
 		22BCF2F92AEF16B900CEFD87 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 22BCF2F82AEF16B900CEFD87 /* Assets.xcassets */; };
 		22BCF2FC2AEF16B900CEFD87 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22BCF2FA2AEF16B900CEFD87 /* LaunchScreen.storyboard */; };
+		22BCF3042AEF2C4800CEFD87 /* SoundViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22BCF3032AEF2C4800CEFD87 /* SoundViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		22BCF2F82AEF16B900CEFD87 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		22BCF2FB2AEF16B900CEFD87 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		22BCF2FD2AEF16B900CEFD87 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		22BCF3032AEF2C4800CEFD87 /* SoundViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +68,7 @@
 				22BCF2FA2AEF16B900CEFD87 /* LaunchScreen.storyboard */,
 				22BCF2FD2AEF16B900CEFD87 /* Info.plist */,
 				22BCF2F52AEF16B700CEFD87 /* FontelaSoundBoard.xcdatamodeld */,
+				22BCF3032AEF2C4800CEFD87 /* SoundViewController.swift */,
 			);
 			path = FontelaSoundBoard;
 			sourceTree = "<group>";
@@ -145,6 +148,7 @@
 				22BCF2F12AEF16B700CEFD87 /* ViewController.swift in Sources */,
 				22BCF2ED2AEF16B700CEFD87 /* AppDelegate.swift in Sources */,
 				22BCF2EF2AEF16B700CEFD87 /* SceneDelegate.swift in Sources */,
+				22BCF3042AEF2C4800CEFD87 /* SoundViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
