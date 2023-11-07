@@ -27,9 +27,16 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell()
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Celda", for: indexPath)
         let grabacion = grabaciones[indexPath.row]
         cell.textLabel?.text = grabacion.nombre
+
+        // Asignar tiempo de duracion de grabacion a detailTextLabel
+        let tiempoGrabacion = grabacion.tiempoDuracion
+        let minutos = Int(tiempoGrabacion) / 60
+        let segundos = Int(tiempoGrabacion) % 60
+        cell.detailTextLabel?.text = String(format: "%02d:%02d", minutos, segundos)
+        
         return cell
     }
     

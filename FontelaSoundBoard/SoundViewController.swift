@@ -16,10 +16,13 @@ class SoundViewController: UIViewController {
     @IBOutlet weak var reproducirButton: UIButton!
     @IBOutlet weak var nombreTextField: UITextField!
     @IBOutlet weak var agregarButton: UIButton!
+    @IBOutlet weak var tiempoLabel: UILabel!
+    
     
     var grabarAudio:AVAudioRecorder?
     var reproducirAudio:AVAudioPlayer?
     var audioURL:URL?
+    var tiempoGrabacion: TimeInterval = 0
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,6 +31,13 @@ class SoundViewController: UIViewController {
         agregarButton.isEnabled = false
     }
     
+    // Funcion para actualizar el tiempo
+    func actualizarTiempoLabel() {
+        let minutos = Int(tiempoGrabacion) / 60
+        let segundos = Int(tiempoGrabacion) % 60
+        tiempoLabel.text = String(format: "%02d:%02d", minutos, segundos)
+    }
+
     func configurarGrabacion() {
         do {
             // creando sesion de auido
@@ -57,6 +67,14 @@ class SoundViewController: UIViewController {
             grabarAudio!.prepareToRecord()
         } catch let error as NSError {
             print(error)
+        }
+        
+        Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { [weak self] timer in
+            guard let self = self, let grabarAudio = self.grabarAudio else { return }
+            if grabarAudio.isRecording {
+                self.tiempoGrabacion += 1
+                self.actualizarTiempoLabel()
+            }
         }
     }
     
@@ -91,9 +109,15 @@ class SoundViewController: UIViewController {
         let grabacion = Grabacion(context: context)
         grabacion.nombre = nombreTextField.text
         grabacion.audio = NSData(contentsOf: audioURL!)! as Data
+        grabacion.tiempoDuracion = tiempoGrabacion
         (UIApplication.shared.delegate as! AppDelegate).saveContext()
         navigationController!.popViewController(animated: true)
     }
     
-
+    // Funcion controlar volumen
+    @IBAction func ajustarVolumen(_ sender: UISlider) {
+        let nuevoVolumen = sender.value
+        reproducirAudio?.volume = nuevoVolumen
+    }
+    
 }
